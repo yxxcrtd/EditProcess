@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-query>
+	<dao id="cn.digitalpublishing.dao.ResourceDao">
+		<query>
+			<id>getPagingList</id>
+			<method>getPagingList</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+			</params>
+			<properties>id,isbn,author,name,price,publisher</properties>
+			<fields>a.id,a.isbn,a.author,a.name,a.price,a.publisher</fields>
+			<hql>from Resource a</hql>
+			<conditions>
+				<condition id="name" describe="书名">
+					<params type="param">
+						<param name="name" type="java.lang.String" />
+					</params>
+					<hql>a.name like ?</hql>
+				</condition>
+				<condition id="isbn" describe="isbn">
+					<params type="param">
+						<param name="isbn" type="java.lang.String" />
+					</params>
+					<hql>a.isbn like ?</hql>
+				</condition>
+				<condition id="author" describe="作者">
+					<params type="param">
+						<param name="author" type="java.lang.String" />
+					</params>
+					<hql>a.author like ?</hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order></order>
+			<className>cn.digitalpublishing.po.Resource</className>
+		</query>
+		
+		<query>
+			<id>getCount</id>
+			<method>getCount</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+			</params>
+			<properties>id</properties>
+			<fields>cast(count(*) as string)</fields>
+			<hql>from Resource a</hql>
+			<conditions>
+				<condition id="name" describe="书名">
+					<params type="param">
+						<param name="name" type="java.lang.String" />
+					</params>
+					<hql>a.name like ?</hql>
+				</condition>
+				<condition id="isbn" describe="isbn">
+					<params type="param">
+						<param name="isbn" type="java.lang.String" />
+					</params>
+					<hql>a.isbn like ?</hql>
+				</condition>
+				<condition id="author" describe="作者">
+					<params type="param">
+						<param name="author" type="java.lang.String" />
+					</params>
+					<hql>a.author like ?</hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order></order>
+			<className>cn.digitalpublishing.po.Resource</className>
+		</query>
+
+		<query>
+			<id>getIsbn</id>
+			<method>getIsbn</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+			</params>
+			<properties>id,name,author,isbn,publishDate,price,onPrice,offPrice,publisher,edition,pages,frame,format,sheet,cover,url</properties>
+			<fields>a.id,a.name,a.author,a.isbn,a.publishDate,a.price,a.onPrice,a.offPrice,a.publisher,a.edition,a.pages,a.frame,a.format,a.sheet,a.cover,a.url</fields>
+			<hql>from Resource a</hql>
+			<conditions>
+				<condition id="isbn" describe="Isbn">
+					<params type="param">
+						<param name="isbn" type="java.lang.String" />
+					</params>
+					<hql>a.isbn = ?</hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order></order>
+			<className>cn.digitalpublishing.po.Resource</className>
+		</query>
+		
+	</dao>
+</web-query>

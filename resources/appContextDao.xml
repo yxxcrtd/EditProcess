@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="daoFacade" class="cn.digitalpublishing.facade.DaoFacade">
+	
+		<property name="resourceDao">
+			<bean class="cn.digitalpublishing.dao.ResourceDao" parent="commonDao" />
+		</property>
+		
+		<property name="wordDao">
+			<bean class="cn.digitalpublishing.dao.WordDao" parent="commonDao" />
+		</property>
+		
+		<property name="contentDao">
+			<bean class="cn.digitalpublishing.dao.ContentDao" parent="commonDao" />
+		</property>
+	</bean>
+</beans>

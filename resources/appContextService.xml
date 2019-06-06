@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+       
+	<!-- 源数据 -->
+	<bean id="resourceService" parent="baseTxProxy">
+		<property name="target">
+			<bean class="cn.digitalpublishing.service.impl.ResourceServiceImpl" parent="baseService" />
+		</property>
+	</bean>
+	
+	<!-- word -->
+	<bean id="wordService" parent="baseTxProxy">
+		<property name="target">
+			<bean class="cn.digitalpublishing.service.impl.WordServiceImpl" parent="baseService" />
+		</property>
+	</bean>
+</beans>

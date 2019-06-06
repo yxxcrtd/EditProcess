@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+  <book>
+    <title>红楼梦</title><!--资源名称-->
+    <author>曹雪芹</author><!--作者-->
+    <classify>文学</classify><!--商品分类-->
+    <isbn>5464-4524-452</isbn><!--ISBN号-->
+    <price>54.00</price><!--价格-->
+    <publishDate>2015-05-07</publishDate><!--出版时间（文本格式）-->
+    <publisher>北大出版社</publisher><!--出版社-->
+    <edition>1</edition><!--班别版次-->
+    <pages>279</pages><!--页数-->
+    <frame>精装</frame><!--装帧-->
+    <format>16</format><!--开本-->
+    <sheet>12</sheet><!--印张-->
+    <size>64*42mm</size><!--商品尺寸-->
+    <language>简体中文</language><!--语种-->
+    <cover>20150507120259731.png</cover><!--图片-->
+    <originalName>951-959.pdf</originalName><!--上传文件的原始名称-->
+	<systemName>20140922145442250.pdf</systemName><!--上传文件的系统存放名称-->
+    <introduction>serwet大肆攻击sad公平阿斯蒂芬暗室逢灯阿斯蒂芬安生</introduction><!--简介-->
+	<content>在平常应用程序中，对office和pdf文档进行读取数据是比较常见的功能</content><!--内容全文-->
+  </book>
+</books>

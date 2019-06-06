@@ -1,0 +1,59 @@
+.ace-thumbnails {
+	margin-bottom: 4px;
+}
+
+select,textarea,input[type="text"],input[type="password"],input[type="datetime"],input[type="datetime-local"],input[type="date"],input[type="month"],input[type="time"],input[type="week"],input[type="number"],input[type="email"],input[type="url"],input[type="search"],input[type="tel"],input[type="color"],.uneditable-input
+	{
+	padding: 1px 2px;
+}
+
+select,input[type="text"],input[type="password"],input[type="datetime"],input[type="datetime-local"],input[type="date"],input[type="month"],input[type="time"],input[type="week"],input[type="number"],input[type="email"],input[type="url"],input[type="search"],input[type="tel"],input[type="color"],.uneditable-input
+	{
+	height: 22px;
+	font-size: 12px;
+	line-height: 22px;
+	margin-top:3px;
+}
+
+.dataTables_wrapper input[type=text],.dataTables_wrapper select {
+	margin: -2px 3px;
+}
+
+.dataTables_length select {
+	height: 20px;
+	padding: 1px 2px;
+}
+
+.table td {
+	line-height: 22px;
+}
+#page-content .page-header:first-child h1{font-size:14px; line-height:20px;}
+#page-content .page-header:first-child{margin:0 0 8px; padding-bottom:5px;}
+.control-group.error input{height:20px; line-height:20px;}
+.control-group.success input{height:20px;line-height:20px;}
+.controls input{height:20px; line-height:20px;}
+.input-append .add-on, .input-prepend .add-on{height:12px; line-height:12px; margin-top:3px;}
+.table-header{line-height:33px;}
+.row-fluid [class*="span"]{min-height:22px;}
+.title-h4{color:#2679b5;font-size:14px;font-weight:lighter;}
+.title-query{background:#438eb9; padding-left:12px; margin-bottom:1px; line-height:26px; color:#fff;}
+.on-down{border:1px solid #ccc; border-top:none; margin-bottom:5px; background:#eff3f8; padding-top:8px;}
+.on a{ text-decoration:none; color:#fff;}
+.cur-span{text-align:right;}
+.cur-span span{font-weight:bold; margin-left:10px;}
+.h50{height:50px;}
+.h100{height:100px;}
+.ml110{ margin-left:110px;}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.clearfix{display:inline-block;}
+*html.clearfix{height:1%;}
+.clearfix{display:block;}
+.radio.inline, .checkbox.inline{padding-top:0;}
+input[type=checkbox]{opacity:0.5;position:absolute;}
+.distance{margin-top:10px; padding-left:60px;}
+.color{ color:#2679b5;}
+.form-horizontal .control-label{width:110px;}
+.border-div{border:1px solid #ccc; padding:8px 0 0 0; margin-bottom:10px;}
+.mt15{margin-top:15px;}
+.radio input[type="radio"], .checkbox input[type="checkbox"]{margin-top:1px;}
+.pl3{ padding-left:3px;}

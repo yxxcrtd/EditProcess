@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-query>
+	<dao id="cn.digitalpublishing.dao.WordDao">
+		<query>
+			<id>getPagingList</id>
+			<method>getPagingList</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+			</params>
+			<properties>id,title,name,photo,photoLink</properties>
+			<fields>a.id,a.title,a.name,a.photo,a.photoLink</fields>
+			<hql>from Word a</hql>
+			<conditions>
+				<condition id="title" describe="标题">
+					<params type="param">
+						<param name="title" type="java.lang.String" />
+					</params>
+					<hql>a.title like ?</hql>
+				</condition>
+				<condition id="name" describe="书名">
+					<params type="param">
+						<param name="name" type="java.lang.String" />
+					</params>
+					<hql>a.name like ?</hql>
+				</condition>
+				<condition id="photo" describe="图片名">
+					<params type="param">
+						<param name="photo" type="java.lang.String" />
+					</params>
+					<hql>a.photo like ?</hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order></order>
+			<className>cn.digitalpublishing.po.Word</className>
+		</query>
+		
+		<query>
+			<id>getCount</id>
+			<method>getCount</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+			</params>
+			<properties>id</properties>
+			<fields>cast(count(*) as string)</fields>
+			<hql>from Word a</hql>
+			<conditions>
+				<condition id="title" describe="标题">
+					<params type="param">
+						<param name="title" type="java.lang.String" />
+					</params>
+					<hql>a.title like ?</hql>
+				</condition>
+				<condition id="name" describe="书名">
+					<params type="param">
+						<param name="name" type="java.lang.String" />
+					</params>
+					<hql>a.name like ?</hql>
+				</condition>
+				<condition id="photo" describe="图片名">
+					<params type="param">
+						<param name="photo" type="java.lang.String" />
+					</params>
+					<hql>a.photo like ?</hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order></order>
+			<className>cn.digitalpublishing.po.Word</className>
+		</query>
+		
+
+	</dao>
+</web-query>

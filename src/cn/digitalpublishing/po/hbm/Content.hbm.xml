@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.digitalpublishing.po.Content" table="t_CONTENT">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="32" />
+			<generator class="uuid.hex"></generator>
+		</id>
+		<property name="content" type="text">
+			<column name="T_CONTENT" length="65534">
+				<comment>内容</comment>
+			</column>
+		</property>
+		
+		<property name="hid" type="java.lang.String">
+			<column name="T_HID" length="32">
+				<comment>ID</comment>
+			</column>
+		</property>
+		
+	</class>
+</hibernate-mapping>

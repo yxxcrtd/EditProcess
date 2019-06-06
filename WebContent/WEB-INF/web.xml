@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp"
+	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	
+	<!-- OpenSessionInViewFilter过滤器 -->
+	<filter>
+		<filter-name>openSessionInViewFilter</filter-name>
+		<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>openSessionInViewFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter>
+		<filter-name>SetCharacterEncoding</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>SetCharacterEncoding</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/classes/appContext*.xml
+		</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<servlet>
+		<servlet-name>InitParam</servlet-name>
+		<servlet-class>cn.com.daxtech.framework.web.init.ParamConfig</servlet-class>
+		<init-param>
+			<param-name>Path</param-name>
+			<param-value>
+  			<!-- MySQL本地配置 -->
+			/WEB-INF/classes/param.properties
+  			<!-- MySQL服务器配置 -->
+			<!-- /WEB-INF/classes/param_mysql.properties -->
+  			<!-- Oracle服务器配置 -->
+			<!-- /WEB-INF/classes/param_oracle.properties -->
+		</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>InitParam</servlet-name>
+		<url-pattern>/InitParam</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>InitService</servlet-name>
+		<servlet-class>cn.com.daxtech.framework.web.init.InitServiceConfig</servlet-class>
+		<init-param>
+			<param-name>services</param-name>
+			<param-value>/WEB-INF/classes/service.properties</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>InitService</servlet-name>
+		<url-pattern>/InitService</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>InitInterface</servlet-name>
+		<servlet-class>cn.digitalpublishing.servlet.InitInterface</servlet-class>
+		<init-param>
+			<param-name>interfaceService</param-name>
+			<param-value>rest</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>InitInterface</servlet-name>
+		<url-pattern>/InitInterface</url-pattern>
+	</servlet-mapping>
+	<!-- 加载xml文件，初始化hql -->
+	<servlet>
+		<servlet-name>queryxmlinit</servlet-name>
+		<servlet-class>cn.com.daxtech.framework.web.init.QueryXmlInit</servlet-class>
+		<init-param>
+			<param-name>path</param-name>
+			<param-value>
+				/WEB-INF/classes/hql
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>suffix</param-name>
+			<param-value>
+				.xml
+			</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<!-- 加载xml文件，初始化hql 结束 -->
+
+
+
+	<!-- <filter> <filter-name>permissionFilter</filter-name> <filter-class>cn.com.daxtech.framework.web.filter.PermissionFilter</filter-class> 
+		<init-param> <param-name>permissionURL</param-name> <param-value>http://127.0.0.1:8080/webgate/getPermissions</param-value> 
+		</init-param> <init-param> <param-name>loginInfoURL</param-name> <param-value>http://127.0.0.1:8080/webgate/getLoginInfo</param-value> 
+		</init-param> <init-param> <param-name>loginURL</param-name> <param-value>http://127.0.0.1:8080/webgate</param-value> 
+		</init-param> <init-param> <param-name>navigationURL</param-name> <param-value>http://127.0.0.1:8080/webgate/getNavigation.xml</param-value> 
+		</init-param> <init-param> <param-name>permissionURL</param-name> <param-value>http://127.0.0.1:8080/getPermissions</param-value> 
+		</init-param> <init-param> <param-name>loginInfoURL</param-name> <param-value>http://127.0.0.1:8080/getLoginInfo</param-value> 
+		</init-param> <init-param> <param-name>loginURL</param-name> <param-value>http://rec.cnpereading.com</param-value> 
+		</init-param> <init-param> <param-name>navigationURL</param-name> online 
+		config end <init-param> <param-name>menuMap</param-name> <param-value>menuMap</param-value> 
+		</init-param> <init-param> <param-name>funMap</param-name> <param-value>funMap</param-value> 
+		</init-param> </filter> <filter-mapping> <filter-name>permissionFilter</filter-name> 
+		<url-pattern>/pages/*</url-pattern> </filter-mapping> -->
+
+	<filter>
+		<filter-name>LanguageFilter</filter-name>
+		<filter-class>cn.digitalpublishing.filter.LanguageFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>LanguageFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		<!-- <dispatcher>FORWARD</dispatcher> <dispatcher>INCLUDE</dispatcher> 
+			<dispatcher>REQUEST</dispatcher> -->
+	</filter-mapping>
+	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/classes/log4j.properties
+		</param-value>
+	</context-param>
+	<context-param>
+		<param-name>log4jRefreshInterval</param-name>
+		<param-value>6000</param-value>
+	</context-param>
+	<context-param>
+		<param-name>webAppRootKey</param-name>
+		<param-value>Editorial</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+	</listener>
+	<servlet>
+		<servlet-name>Skin</servlet-name>
+		<servlet-class>cn.com.daxtech.framework.Skin.SkinConfig</servlet-class>
+		<init-param>
+			<param-name>url</param-name>
+			<param-value>http://127.0.0.1:8080/webgate</param-value>
+		</init-param>
+		<init-param>
+			<param-name>css</param-name>
+			<param-value>/css/ui.css,/css/pub.css</param-value>
+		</init-param>
+		<init-param>
+			<param-name>js</param-name>
+			<param-value>/js/ui.js,/js/pub.js</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Skin</servlet-name>
+		<url-pattern>/Skin</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>i18n</servlet-name>
+		<servlet-class>cn.com.daxtech.framework.Internationalization.LangConfig</servlet-class>
+		<init-param>
+			<param-name>config</param-name>
+			<param-value>/WEB-INF/classes/i18n.properties</param-value>
+		</init-param>
+		<init-param>
+			<param-name>default</param-name>
+			<param-value>default</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>i18n</servlet-name>
+		<url-pattern>/i18n</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>springmvc</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/classes/mvc-config.xml</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>springmvc</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>springmvc</servlet-name>
+		<url-pattern>*.json</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>springmvc</servlet-name>
+		<url-pattern>*.xml</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.html</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.swf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.ico</url-pattern>
+	</servlet-mapping>
+	<!-- <servlet-mapping> <servlet-name>default</servlet-name> <url-pattern>/dawson/metadata/*</url-pattern> 
+		</servlet-mapping> <servlet-mapping> <servlet-name>default</servlet-name> 
+		<url-pattern>/ereading/metadata/*</url-pattern> </servlet-mapping> -->
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.css</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.xls</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.rar</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.zip</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.gif</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.jpg</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.png</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.js</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.woff</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.ttf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.eot</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.otf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.svg</url-pattern>
+	</servlet-mapping>
+	<jsp-config>
+		<taglib>
+			<taglib-uri>daxtech-taglib.tld</taglib-uri>
+			<taglib-location>/WEB-INF/taglib/daxtech-taglib.tld</taglib-location>
+		</taglib>
+		<!-- <taglib> <taglib-uri>zhima-taglib.tld</taglib-uri> <taglib-location> 
+			/WEB-INF/taglib/zhima-taglib.tld </taglib-location> </taglib> <taglib> <taglib-uri>ingenta-taglib.tld</taglib-uri> 
+			<taglib-location> /WEB-INF/taglib/ingenta-taglib.tld </taglib-location> </taglib> -->
+	</jsp-config>
+
+	<!-- 站点首页 -->
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+</web-app>

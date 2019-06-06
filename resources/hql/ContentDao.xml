@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-query>
+	<dao id="cn.digitalpublishing.dao.ContentDao">
+			<query>
+			<id>getContent</id>
+			<method>getContent</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+				<param name="sort" type="java.lang.String"></param>
+			</params>
+			<properties>content,id</properties>
+			<fields>c.content,c.id</fields>
+			<hql>from Content c</hql>
+			<conditions>
+				<condition id="content" describe="内容">
+					<params type="param">
+						<param name="content" type="java.lang.String" />
+					</params>
+					<hql>c.content = ?</hql>
+				</condition>
+				
+				<condition id="objectid" describe="id">
+					<params type="param">
+						<param name="objectid" type="java.lang.String" />
+					</params>
+					<hql>c.hid = ?</hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order></order>
+			<className>cn.digitalpublishing.po.Content</className>
+		</query>
+		
+		<query>
+			<id>getCount</id>
+			<method>getCount</method>
+			<params>
+				<param name="condition" type="java.util.Map"></param>
+			</params>
+			<properties>id</properties>
+			<fields>cast(count(*) as string)</fields>
+			<hql>from Content a</hql>
+			<conditions>
+				<condition id="contenid" describe="contenid">
+					<params type="param">
+						<param name="contenid" type="java.lang.String" />
+					</params>
+					<hql>a.hid = ? </hql>
+				</condition>
+			</conditions>
+			<group></group>
+			<order></order>
+			<className>cn.digitalpublishing.po.Content</className>
+		</query>
+		
+	</dao>
+</web-query>

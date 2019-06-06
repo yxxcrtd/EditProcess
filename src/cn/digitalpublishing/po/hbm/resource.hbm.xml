@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.digitalpublishing.po.Resource" table="T_RESOURCE">
+		<id name="id" type="java.lang.String">
+			<column name="T_ID" length="32" />
+			<generator class="uuid.hex"></generator>
+		</id>
+		<property name="author" type="java.lang.String">
+			<column name="T_AUTHOR" length="128">
+				<comment>作者</comment>
+			</column>
+		</property>
+		<property name="name" type="java.lang.String">
+			<column name="T_NAME" length="128">
+				<comment>书名</comment>
+			</column>
+		</property>
+		<property name="isbn" type="java.lang.String">
+			<column name="T_ISBN">
+				<comment>ISBN</comment>
+			</column>
+		</property>
+		<property name="publishDate" type="java.util.Date">
+			<column name="T_PUBLISHINGDATE" length="32">
+				<comment>出版时间（文本格式）</comment>
+			</column>
+		</property>
+		<property name="price" type="java.math.BigDecimal">
+			<column name="T_PRICE" length="32">
+				<comment>纸书价格</comment>
+			</column>
+		</property>
+		<property name="onPrice" type="java.math.BigDecimal">
+			<column name="T_ONPRICE" length="32">
+				<comment>在线阅读价</comment>
+			</column>
+		</property>
+		<property name="offPrice" type="java.math.BigDecimal">
+			<column name="T_OFFPRICE" length="32">
+				<comment>离线阅读价</comment>
+			</column>
+		</property>
+		<property name="publisher" type="java.lang.String">
+			<column name="T_PUBLISHER" length="32">
+				<comment>出版社</comment>
+			</column>
+		</property>
+		<property name="edition" type="java.lang.String">
+			<column name="T_EDITION" length="32">
+				<comment>版次</comment>
+			</column>
+		</property>
+		<property name="pages" type="java.lang.Integer">
+			<column name="T_PAGES" length="32">
+				<comment>页数</comment>
+			</column>
+		</property>
+		<property name="frame" type="java.lang.String">
+			<column name="T_FRAME" length="32">
+				<comment>装帧</comment>
+			</column>
+		</property>
+		<property name="format" type="java.lang.String">
+			<column name="T_FORMAT" length="32">
+				<comment>开本</comment>
+			</column>
+		</property>
+		<property name="sheet" type="java.lang.Integer">
+			<column name="T_SHEET" length="32">
+				<comment>印张</comment>
+			</column>
+		</property>
+		<property name="cover" type="java.lang.String">
+			<column name="T_COVER" length="400">
+				<comment>封面</comment>
+			</column>
+		</property>
+		<property name="url" type="java.lang.String">
+			<column name="T_URL" length="213">
+				<comment>回链地址</comment>
+			</column>
+		</property>
+		<property name="introduction" type="java.lang.String">
+			<column name="T_INTRODUCTION" length="500">
+				<comment>简介</comment>
+			</column>
+		</property>
+		<property name="content" type="java.lang.String">
+			<column name="T_CONTENT" length="20000">
+				<comment>内容全文</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>
